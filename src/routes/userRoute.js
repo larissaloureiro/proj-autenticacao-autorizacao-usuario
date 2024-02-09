@@ -1,7 +1,9 @@
 const { Router } = require('express')
 const UserController = require('../controllers/userController')
+const verifyJWT = require('../middleware/verifyJWT')
 
 const router = Router()
+router.use(verifyJWT)
 
 router
   .post('/user', UserController.createUser)
