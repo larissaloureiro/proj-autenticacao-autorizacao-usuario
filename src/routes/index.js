@@ -2,6 +2,7 @@ const bodyParser = require('body-parser')
 const user = require('./userRoute')
 const auth = require('./authRoute')
 const role = require('./roleRoute')
+const security = require('./securityRoute')
 
 
 module.exports = app => {
@@ -9,6 +10,7 @@ module.exports = app => {
     bodyParser.json(),
     auth,
     user,
-    role
+    role,
+    security
   )
 }
