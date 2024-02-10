@@ -35,7 +35,14 @@ class UserService {
     const user = await database.users.findOne({
       where: {
         id: id
-      }
+      },
+      include: [
+        {
+          model: database.roles,
+          as: 'user_roles',
+          attributes: ['id', 'name']
+        }
+      ]
     });
     if (!user) {
       throw new Error('Usuário informado não cadastrado!')
