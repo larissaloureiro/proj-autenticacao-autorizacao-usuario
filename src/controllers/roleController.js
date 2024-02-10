@@ -24,7 +24,7 @@ class RoleController {
         const role = await roleService.findRoleById(id)
         res.status(200).json(role) 
     } catch (error) {
-        res.status(400).send({ message: error.message })
+        res.status(404).send({ message: error.message })
     }
   }
 

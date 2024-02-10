@@ -1,13 +1,14 @@
 const { Router } = require('express')
 const RoleController = require('../controllers/roleController')
+const verifyRoles = require('../middleware/verifyRoles')
 
 const router = Router()
 
 router
-  .post('/role', RoleController.createRole)
-  .get('/role', RoleController.findAllRoles)
-  .get('/role/id/:id', RoleController.findRoleById)
-  .put('/role/id/:id', RoleController.updateRoleById)
-  .delete('/role/id/:id', RoleController.deleteRoleById)
+  .post('/roles', verifyRoles(['Admin']), RoleController.createRole)
+  .get('/roles', verifyRoles(['Admin']), RoleController.findAllRoles)
+  .get('/roles/:id', verifyRoles(['Admin']), RoleController.findRoleById)
+  .put('/roles/:id', verifyRoles(['Admin']), RoleController.updateRoleById)
+  .delete('/roles/:id', verifyRoles(['Admin']), RoleController.deleteRoleById)
 
 module.exports = router
