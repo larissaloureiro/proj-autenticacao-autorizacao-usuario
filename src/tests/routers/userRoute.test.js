@@ -75,7 +75,7 @@ describe('POST em /users', () => {
       .set('Authorization', tokenBearerAdmin)
       .send({
         name: 'Teste',
-        email: 'teste@teste.com',
+        email: 'testeuser@teste.com',
         password: 'passwordtest'
       })
       .expect(201);
@@ -103,7 +103,7 @@ describe('POST em /users', () => {
       .set('Authorization', tokenBearerAdmin)
       .send({
         name: 'Teste',
-        email: 'teste@teste.com',
+        email: 'testeuser@teste.com',
         password: 'passwordtest'
       })
       .expect(400);
@@ -121,7 +121,7 @@ describe('GET em /users/:id', () => {
     expect(res.body.id).toEqual(newUserId)
   });
 
-  test('Deve retornar erro quando a role selecionado não existir', async () => {
+  test('Deve retornar erro quando o user selecionado não existir', async () => {
     await request(app)
       .get(`/users/${uuid.v4()}`)
       .set('Accept', 'applicattion/json')
