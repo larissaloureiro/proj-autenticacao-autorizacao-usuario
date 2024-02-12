@@ -43,7 +43,6 @@ class RoleService {
     const role = await this.findRoleById(dto.id);
     try {
       role.name = dto.name
-      role.descricao = dto.descricao
       await role.save()
       return await role.reload()
     } catch (error) {
