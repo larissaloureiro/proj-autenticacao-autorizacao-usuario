@@ -11,6 +11,12 @@ module.exports = {
         name: 'Admin',
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        id: uuid.v4(),
+        name: 'User',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },
