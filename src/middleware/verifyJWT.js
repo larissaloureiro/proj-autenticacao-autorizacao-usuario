@@ -14,6 +14,6 @@ module.exports = async (req, res, next) => {
     req.userEmail = email
     return next()
   } catch (error) {
-    res.status(401).send('Usuário não autenticado')
+    return res.status(401).send('Usuário não autenticado')
   }
 }
